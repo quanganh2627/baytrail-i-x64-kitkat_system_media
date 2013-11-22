@@ -25,8 +25,6 @@
 
 #define AUDIO_EFFECT_DEFAULT_CONFIG_FILE "/system/etc/audio_effects.conf"
 #define AUDIO_EFFECT_VENDOR_CONFIG_FILE "/vendor/etc/audio_effects.conf"
-#define AUDIO_EFFECT_OFFLOAD_CONFIG_FILE "/vendor/etc/audio_offload_effects.conf"
-
 #define LIBRARIES_TAG "libraries"
 #define PATH_TAG "path"
 
