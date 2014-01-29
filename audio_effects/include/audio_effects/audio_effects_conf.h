@@ -23,8 +23,15 @@
 //      Definitions for effects configuration file (audio_effects.conf)
 /////////////////////////////////////////////////
 
+// Post Processing Effects Config file
 #define AUDIO_EFFECT_DEFAULT_CONFIG_FILE "/system/etc/audio_effects.conf"
 #define AUDIO_EFFECT_VENDOR_CONFIG_FILE "/vendor/etc/audio_effects.conf"
+
+// Pre Processing Effects Config file
+#define AUDIO_PRE_EFFECT_DEFAULT_CONFIG_FILE "/system/etc/audio_pre_effects.conf"
+#define AUDIO_PRE_EFFECT_VENDOR_CONFIG_FILE "/vendor/etc/audio_pre_effects.conf"
+
+// Post Processing Offload Effects Config file
 #define AUDIO_EFFECT_OFFLOAD_CONFIG_FILE "/vendor/etc/audio_offload_effects.conf"
 
 #define LIBRARIES_TAG "libraries"
