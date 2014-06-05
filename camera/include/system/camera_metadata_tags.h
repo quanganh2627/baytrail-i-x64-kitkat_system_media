@@ -109,6 +109,7 @@ typedef enum camera_metadata_tag {
             ANDROID_COLOR_CORRECTION_START,
     ANDROID_COLOR_CORRECTION_TRANSFORM,               // rational[]   | public
     ANDROID_COLOR_CORRECTION_GAINS,                   // float[]      | public
+    ANDROID_COLOR_CORRECTION_USE_ZERO_HISTORY_MODE,   // enum         | public
     ANDROID_COLOR_CORRECTION_END,
 
     ANDROID_CONTROL_AE_ANTIBANDING_MODE =             // enum         | public
@@ -128,6 +129,7 @@ typedef enum camera_metadata_tag {
     ANDROID_CONTROL_CAPTURE_INTENT,                   // enum         | public
     ANDROID_CONTROL_EFFECT_MODE,                      // enum         | public
     ANDROID_CONTROL_MODE,                             // enum         | public
+    ANDROID_CONTROL_SKIP_VENDOR_3A,                     // enum         | public
     ANDROID_CONTROL_SCENE_MODE,                       // enum         | public
     ANDROID_CONTROL_VIDEO_STABILIZATION_MODE,         // enum         | public
     ANDROID_CONTROL_AE_AVAILABLE_ANTIBANDING_MODES,   // byte[]       | public
@@ -308,10 +310,12 @@ typedef enum camera_metadata_tag {
     ANDROID_STATISTICS_HISTOGRAM,                     // int32[]      | system
     ANDROID_STATISTICS_SHARPNESS_MAP,                 // int32[]      | system
     ANDROID_STATISTICS_LENS_SHADING_MAP,              // float[]      | public
+    ANDROID_STATISTICS_PREDICTED_LENS_SHADING_MAP,    // float[]      | public
     ANDROID_STATISTICS_PREDICTED_COLOR_GAINS,         // float[]      | public
     ANDROID_STATISTICS_PREDICTED_COLOR_TRANSFORM,     // rational[]   | public
     ANDROID_STATISTICS_SCENE_FLICKER,                 // enum         | public
     ANDROID_STATISTICS_LENS_SHADING_MAP_MODE,         // enum         | public
+    ANDROID_STATISTICS_WAS_SKIPPED_FOR_VENDOR_3A,     // enum         | public
     ANDROID_STATISTICS_END,
 
     ANDROID_STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES = 
@@ -358,6 +362,11 @@ typedef enum camera_metadata_enum_android_color_correction_mode {
     ANDROID_COLOR_CORRECTION_MODE_HIGH_QUALITY,
 } camera_metadata_enum_android_color_correction_mode_t;
 
+// ANDROID_COLOR_CORRECTION_USE_ZERO_HISTORY_MODE
+typedef enum camera_metadata_enum_android_color_correction_use_zero_history_mode {
+   ANDROID_COLOR_CORRECTION_USE_ZERO_HISTORY_MODE_OFF,
+   ANDROID_COLOR_CORRECTION_USE_ZERO_HISTORY_MODE_ON
+} camera_metadata_enum_android_color_correction_use_zero_history_mode_t;
 
 // ANDROID_CONTROL_AE_ANTIBANDING_MODE
 typedef enum camera_metadata_enum_android_control_ae_antibanding_mode {
@@ -453,6 +462,12 @@ typedef enum camera_metadata_enum_android_control_mode {
     ANDROID_CONTROL_MODE_AUTO,
     ANDROID_CONTROL_MODE_USE_SCENE_MODE,
 } camera_metadata_enum_android_control_mode_t;
+
+// ANDROID_CONTROL_SKIP_VENDOR_3A
+typedef enum camera_metadata_enum_android_control_skip_vendor_3A {
+    ANDROID_CONTROL_SKIP_VENDOR_3A_OFF,
+    ANDROID_CONTROL_SKIP_VENDOR_3A_ON,
+} camera_metadata_enum_android_control_skip_vendor_3A_t;
 
 // ANDROID_CONTROL_SCENE_MODE
 typedef enum camera_metadata_enum_android_control_scene_mode {
@@ -694,7 +709,11 @@ typedef enum camera_metadata_enum_android_statistics_lens_shading_map_mode {
     ANDROID_STATISTICS_LENS_SHADING_MAP_MODE_ON,
 } camera_metadata_enum_android_statistics_lens_shading_map_mode_t;
 
-
+// ANDROID_STATISTICS_WAS_SKIPPED_FOR_VENDOR_3A
+typedef enum camera_metadata_enum_android_statistics_was_Skipped_for_vendor_3A {
+    ANDROID_STATISTICS_WAS_SKIPPED_FOR_VENDOR_3A_OFF,
+    ANDROID_STATISTICS_WAS_SKIPPED_FOR_VENDOR_3A_ON,
+} camera_metadata_enum_android_statistics_was_skipped_for_vendor_3A_t;
 
 // ANDROID_TONEMAP_MODE
 typedef enum camera_metadata_enum_android_tonemap_mode {
