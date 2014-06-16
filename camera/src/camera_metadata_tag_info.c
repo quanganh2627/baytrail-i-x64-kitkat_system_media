@@ -120,8 +120,10 @@ static tag_info_t android_color_correction[ANDROID_COLOR_CORRECTION_END -
                 },
     [ ANDROID_COLOR_CORRECTION_GAINS - ANDROID_COLOR_CORRECTION_START ] =
     { "gains",                         TYPE_FLOAT  },
+#ifdef INTEL_ENHANCEMENT
     [ ANDROID_COLOR_CORRECTION_USE_ZERO_HISTORY_MODE - ANDROID_COLOR_CORRECTION_START ] =
     { "mode",                         TYPE_BYTE  },
+#endif
 };
 
 static tag_info_t android_control[ANDROID_CONTROL_END -
@@ -158,8 +160,10 @@ static tag_info_t android_control[ANDROID_CONTROL_END -
     { "effectMode",                    TYPE_BYTE   },
     [ ANDROID_CONTROL_MODE - ANDROID_CONTROL_START ] =
     { "mode",                          TYPE_BYTE   },
+#ifdef INTEL_ENHANCEMENT
     [ ANDROID_CONTROL_SKIP_VENDOR_3A - ANDROID_CONTROL_START ] =
     { "mode",                          TYPE_BYTE   },
+#endif
     [ ANDROID_CONTROL_SCENE_MODE - ANDROID_CONTROL_START ] =
     { "sceneMode",                     TYPE_BYTE   },
     [ ANDROID_CONTROL_VIDEO_STABILIZATION_MODE - ANDROID_CONTROL_START ] =
@@ -492,8 +496,10 @@ static tag_info_t android_statistics[ANDROID_STATISTICS_END -
     { "sharpnessMap",                  TYPE_INT32  },
     [ ANDROID_STATISTICS_LENS_SHADING_MAP - ANDROID_STATISTICS_START ] =
     { "lensShadingMap",                TYPE_FLOAT  },
+#ifdef INTEL_ENHANCEMENT
     [ ANDROID_STATISTICS_PREDICTED_LENS_SHADING_MAP - ANDROID_STATISTICS_START ] =
     { "predictedLensShadingMap",       TYPE_FLOAT  },
+#endif
     [ ANDROID_STATISTICS_PREDICTED_COLOR_GAINS - ANDROID_STATISTICS_START ] =
     { "predictedColorGains",           TYPE_FLOAT  },
     [ ANDROID_STATISTICS_PREDICTED_COLOR_TRANSFORM - ANDROID_STATISTICS_START ] =
@@ -503,8 +509,10 @@ static tag_info_t android_statistics[ANDROID_STATISTICS_END -
     { "sceneFlicker",                  TYPE_BYTE   },
     [ ANDROID_STATISTICS_LENS_SHADING_MAP_MODE - ANDROID_STATISTICS_START ] =
     { "lensShadingMapMode",            TYPE_BYTE   },
+#ifdef INTEL_ENHANCEMENT
     [ ANDROID_STATISTICS_WAS_SKIPPED_FOR_VENDOR_3A - ANDROID_STATISTICS_START ] =
     { "mode",            TYPE_BYTE   },
+#endif
 };
 
 static tag_info_t android_statistics_info[ANDROID_STATISTICS_INFO_END -
@@ -619,6 +627,7 @@ int camera_metadata_enum_snprint(uint32_t tag,
         case ANDROID_COLOR_CORRECTION_GAINS: {
             break;
         }
+#ifdef INTEL_ENHANCEMENT
         case ANDROID_COLOR_CORRECTION_USE_ZERO_HISTORY_MODE: {
             switch (value) {
                 case ANDROID_COLOR_CORRECTION_USE_ZERO_HISTORY_MODE_OFF:
@@ -634,6 +643,7 @@ int camera_metadata_enum_snprint(uint32_t tag,
             }
             break;
         }
+#endif
         case ANDROID_CONTROL_AE_ANTIBANDING_MODE: {
             switch (value) {
                 case ANDROID_CONTROL_AE_ANTIBANDING_MODE_OFF:
@@ -930,6 +940,7 @@ int camera_metadata_enum_snprint(uint32_t tag,
             }
             break;
         }
+#ifdef INTEL_ENHANCEMENT
         case ANDROID_CONTROL_SKIP_VENDOR_3A: {
             switch (value) {
                 case ANDROID_CONTROL_SKIP_VENDOR_3A_OFF:
@@ -945,7 +956,7 @@ int camera_metadata_enum_snprint(uint32_t tag,
             }
             break;
         }
-
+#endif
         case ANDROID_CONTROL_SCENE_MODE: {
             switch (value) {
                 case ANDROID_CONTROL_SCENE_MODE_UNSUPPORTED:
@@ -1875,9 +1886,11 @@ int camera_metadata_enum_snprint(uint32_t tag,
         case ANDROID_STATISTICS_LENS_SHADING_MAP: {
             break;
         }
+#ifdef INTEL_ENHANCEMENT
         case ANDROID_STATISTICS_PREDICTED_LENS_SHADING_MAP: {
             break;
         }
+#endif
         case ANDROID_STATISTICS_PREDICTED_COLOR_GAINS: {
             break;
         }
@@ -1918,7 +1931,7 @@ int camera_metadata_enum_snprint(uint32_t tag,
             }
             break;
         }
-
+#ifdef INTEL_ENHANCEMENT
         case ANDROID_STATISTICS_WAS_SKIPPED_FOR_VENDOR_3A: {
             switch (value) {
                 case ANDROID_STATISTICS_WAS_SKIPPED_FOR_VENDOR_3A_OFF:
@@ -1934,7 +1947,7 @@ int camera_metadata_enum_snprint(uint32_t tag,
             }
             break;
         }
-
+#endif
         case ANDROID_STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES: {
             break;
         }
